@@ -86,3 +86,10 @@ Section \"ServerFlags\"
 EndSection
 " > /etc/X11/xorg.conf.d/90-no-dpms.conf
 ```
+
+If your your Honor/Huawei laptop haves power-supply static noise at jack output, you can use this to reduce it:
+```
+mkdir -p /etc/modprobe.d
+echo "options snd-hda-intel model=alc255-acer,dell-headset-multi
+" > /etc/modprobe.d/alsa-base.conf
+```
