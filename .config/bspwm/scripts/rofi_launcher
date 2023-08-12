@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
+##
+## ~~~ Edit 2023 Inqognitoo <alexinq6@gmail.com>
+##
+## This script runs launcher
+
+# Import Current Theme
+RASI="$HOME/.config/bspwm/rofi/launcher.rasi"
+
+# Run
+rofi \
+    -show drun \
+	-kb-cancel Alt-F1 \
+	-theme ${RASI}

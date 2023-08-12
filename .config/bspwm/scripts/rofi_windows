@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
+##
+## ~~ Edit 2023 Inqognitoo <alexinq6@gmail.com>
+
+# Import Current Theme
+RASI="$HOME/.config/bspwm/rofi/windows.rasi"
+
+# Run
+rofi \
+    -show window \
+    -kb-cancel Alt-Tab \
+	-theme ${RASI}

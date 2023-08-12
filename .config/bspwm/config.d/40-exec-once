@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Kill active processes
+killall -9 xsettingsd sxhkd dunst ksuperkey xss-lock
+
+# Lauch xsettingsd daemon
+xsettingsd --config="$HOME"/.config/bspwm/xsettingsd &
+
+# Lauch keybindings daemon
+sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
+
+# Enable super keys for rofi
+ksuperkey -e 'Super_L=Alt_L|F1' &
+
+# Enable lock screen hd
+xss-lock -- betterlockscreen --suspend &
+
+# Fix cursor
+xsetroot -cursor_name left_ptr
+
+# Restore wallpaper
+feh --no-fehbg --bg-fill "$HOME/Pictures/wallpapers/evening-sky.png"
+
+# Start mpd
+exec mpd &
+
+# Start bspwm scripts
+bspbar
+bspcomp
+bspdunst

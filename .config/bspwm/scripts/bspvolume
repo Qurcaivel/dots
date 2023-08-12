@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
+##
+## ~~~ Edit 2023 Inqognitoo <alexinq6@gmail.com>
+##
+## Script to manage speaker volume on Archcraft.
+
+icons='/usr/share/archcraft/icons/dunst'
+message='notify-send -u low -h string:x-dunst-stack-tag:obvolume'
+
+get_volume(){
+    echo "$(pamixer --get-volume)"
+}
+
+get_mute(){
+    echo "$(pamixer --get-mute)"
+}
+
+get_micmute(){
+    echo "$(pamixer --default-source --get-mute)"
+}
+
+get_icon(){
+    volume=$(get_volume)
+    if [[ "$volume" -ge 60 ]]; then
+        echo "$icons/volume-high.png"
+    elif [[ "$volume" -ge 30 ]]; then
+        echo "$icons/volume-mid.png"
+    elif [[ "$volume" -gt 0 ]]; then
+        echo "$icons/volume-low.png"
+    else
+        echo "$icons/volume-mute.png"
+    fi
+}
+
+send_message(){
+    ${message} -i $(get_icon) "Volume: $(get_volume)%"
+}
+
+inc_volume(){
+    if [[ $(get_mute) == "true" ]]; then
+        pamixer -u
+    fi
+    pamixer -i 2 && 
+    send_message
+}
+
+dec_volume(){
+    if [[ $(get_mute) == "true" ]]; then
+        pamixer -u
+    fi
+    pamixer -d 2 &&
+    send_message
+}
+
+toggle_volume(){
+    if [[ $(get_mute) == "true" ]]; then
+        pamixer -u &&
+        send_message
+    else
+        pamixer -m &&
+        ${message} -i "$icons/volume-mute.png" "Mute"
+    fi
+}
+
+toggle_mic(){
+    if [[ $(get_micmute) == "true" ]]; then
+        pamixer --default-source -u &&
+ 		${message} -i "$icons/microphone.png" "Microphone switched ON"
+	else
+        pamixer --default-source -m &&
+	    ${message} -i "$icons/microphone-mute.png" "Microphone switched OFF" 
+	fi
+}
+
+if [[ "$1" == "--inc" ]]; then
+    inc_volume
+elif [[ $1 == "--dec" ]]; then
+    dec_volume
+elif [[ $1 == "--toggle" ]]; then
+    toggle_volume
+elif [[ $1 == "--toggle-mic" ]]; then
+    toggle_mic
+else
+    get_volume
+fi

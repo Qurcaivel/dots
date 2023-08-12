@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+for script in "$HOME"/.config/bspwm/config.d/*; do
+    . $script
+done

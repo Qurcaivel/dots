@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Clear active window rules
+bspc rule -r *:*
+
+# Set pointer motion interval for floating windows drag & move better experience
+bspc config pointer_motion_interval 5
+
+## Floating apps
+declare -a floating=(
+    Pavucontrol 
+    Blueman-manager 
+    Nm-connection-editor 
+    GParted 
+)
+
+for i in ${floating[@]}; do
+   bspc rule -a $i state=floating focus=on center=true
+done
+
+# Pic-n-pic
+bspc rule -a firefox:Toolkit state=floating focus=on

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# start telegram
+if [[ ! `pidof telegram-desktop` ]]; then
+    /usr/bin/telegram-desktop -startintray &
+fi
+
+# start polkit
+if [[ ! `pidof xfce-polkit` ]]; then
+	/usr/lib/xfce-polkit/xfce-polkit &
+fi
