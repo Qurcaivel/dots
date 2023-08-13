@@ -21,9 +21,6 @@ xsetroot -cursor_name left_ptr
 # Restore wallpaper
 feh --no-fehbg --bg-fill "$HOME/Pictures/wallpapers/evening-sky.png"
 
-# Start mpd
-exec mpd &
-
 # Start bspwm scripts
 bspbar
 bspcomp
