@@ -2,6 +2,7 @@
 
 # start telegram
 if [[ ! `pidof telegram-desktop` ]]; then
+    bspc rule -a "TelegramDesktop" -o desktop='^8'
     /usr/bin/telegram-desktop -startintray &
 fi
 
