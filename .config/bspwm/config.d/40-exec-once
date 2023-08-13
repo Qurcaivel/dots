@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Kill active processes
-killall -9 xsettingsd sxhkd dunst ksuperkey xss-lock
+killall -9 xsettingsd sxhkd ksuperkey xss-lock
 
 # Lauch xsettingsd daemon
 xsettingsd --config="$HOME"/.config/bspwm/xsettingsd &
@@ -22,6 +22,7 @@ xsetroot -cursor_name left_ptr
 feh --no-fehbg --bg-fill "$HOME/Pictures/wallpapers/evening-sky.png"
 
 # Start bspwm scripts
+
 bspbar
 bspcomp
 bspdunst
