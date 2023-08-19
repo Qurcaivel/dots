@@ -12,4 +12,8 @@ killall -q picom
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 
 # Launch picom
-picom --config "$DIR"/picom.conf &
+if [[ "$1" == "--transparent" ]]; then
+    picom --config "$DIR"/picom-transparent.conf &
+else
+    picom --config "$DIR"/picom.conf &
+fi
