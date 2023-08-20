@@ -3,11 +3,15 @@
 ## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
 
 # bspwm directory
-DIR="$HOME/.config/bspwm"
+DIR="$HOME/.config/bspwm/dunst"
 
 # Launch dunst daemon
 if [[ `pidof dunst` ]]; then
 	pkill dunst
 fi
 
-dunst -config "$DIR"/dunstrc &
+if [[ "$1" == "--transparent" ]]; then
+    dunst -config "$DIR"/dunstrc-transparent &
+else
+    dunst -config "$DIR"/dunstrc &
+fi
