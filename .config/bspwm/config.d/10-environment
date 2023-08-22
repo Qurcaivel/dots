@@ -3,18 +3,14 @@
 # Add bspwm scripts to PATH
 export PATH="${PATH}:$HOME/.config/bspwm/scripts"
 
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
-fi
-# import ssh-auth-sock
-if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-fi
-# import .ssh
-ssh-add 2> /dev/null
+# Put ssh-agent sock path
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/keyring/ssh
 
 # Run java applications without issues
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Set for some desktop environment integration
 export XDG_CURRENT_DESKTOP=XFCE
+
+# Set GTK_THEME for some gtk4 apps
+export GTK_THEME=Arc-Dark
