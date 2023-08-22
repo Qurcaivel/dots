@@ -1,0 +1,18 @@
+{
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.minimap.enabled": false,
+    "editor.unicodeHighlight.allowedLocales": {
+        "ru": true,
+        "en": true
+    },
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "terminal.integrated.fontSize": 12,
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorTheme": "Tokyo Night Storm",
+    "workbench.layoutControl.enabled": false,
+    "window.zoomLevel": 2,
+    "window.titleBarStyle": "custom",
+    "window.commandCenter": false
+}
