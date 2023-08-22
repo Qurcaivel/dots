@@ -87,6 +87,25 @@ EndSection
 " > /etc/X11/xorg.conf.d/90-no-dpms.conf
 ```
 
+To use `gnome-keyring-daemon` as your `ssh-agent`, you need to change components list in service:
+```
+[Unit]
+echo "Description=GNOME Keyring daemon
+
+Requires=gnome-keyring-daemon.socket
+
+[Service]
+Type=simple
+StandardError=journal
+ExecStart=/usr/bin/gnome-keyring-daemon --foreground --components="pkcs11,secrets,ssh" --control-directory=%t/keyring
+Restart=on-failure
+
+[Install]
+Also=gnome-keyring-daemon.socket
+WantedBy=default.target
+" > /usr/lib/systemd/user/gnome-keyring-daemon.service
+```
+
 If your Honor/Huawei laptop haves power-supply static noise at jack output, you can use this to reduce it:
 ```
 mkdir -p /etc/modprobe.d
