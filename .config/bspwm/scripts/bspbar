@@ -6,6 +6,9 @@
 ##
 ## Launch bspwm bar.
 
+# force tray icons to use tela-dark
+XDG_CURRENT_DESKTOP=XFCE
+
 # bspwm directory
 DIR="$HOME/.config/bspwm"
 

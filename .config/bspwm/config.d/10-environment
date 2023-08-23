@@ -9,8 +9,5 @@ export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/keyring/ssh
 # Run java applications without issues
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# Set for some desktop environment integration
-export XDG_CURRENT_DESKTOP=XFCE
-
 # Set GTK_THEME for some gtk4 apps
 export GTK_THEME=Arc-Dark
