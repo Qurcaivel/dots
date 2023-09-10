@@ -12,6 +12,9 @@ sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
 # Enable super keys for rofi
 ksuperkey -e 'Super_L=Alt_L|F1' &
 
+# Enable libinput-gestures
+libinput-gestures-setup restart &
+
 # Enable lock screen hd
 xss-lock -- betterlockscreen --suspend &
 
