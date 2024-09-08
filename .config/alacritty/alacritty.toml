@@ -1,0 +1,52 @@
+import = [
+    "/home/inqognitoo/.config/alacritty/themes/tokyo-night-storm.toml", 
+    "/home/inqognitoo/.config/alacritty/fonts.toml", 
+]
+
+[env]
+TERM = "alacritty"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[window]
+position = "None"
+dynamic_padding = true
+decorations = "full"
+opacity = 1.0
+blur = false
+startup_mode = "Windowed"
+dynamic_title = true
+class = { instance = "Alacritty", general = "Alacritty" }
+decorations_theme_variant = "None"
+
+[window.dimensions]
+columns = 82
+lines = 24
+
+[window.padding]
+x = 10
+y = 10
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[bell]
+animation = "Linear"
+duration = 0
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+vi_mode_style = "None"
+blink_interval = 750
+blink_timeout = 5
+unfocused_hollow = false
+thickness = 0.15
+
+[cursor.style]
+shape = "Beam"
+blinking = "On"
+
+[mouse]
+hide_when_typing = false
