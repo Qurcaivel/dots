@@ -19,11 +19,11 @@ alias tree="lsd -A --tree"
 source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-export PATH="$PATH:/home/inqognitoo/.local/bin"
-export PATH="$PATH:/home/inqognitoo/.cargo/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/inqognitoo/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
